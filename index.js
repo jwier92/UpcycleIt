@@ -18,6 +18,10 @@ const wscTemperature = new WebSocket('ws://192.168.2.138:1880/ws/temperature');
 const wscButton1 = new WebSocket('ws://192.168.2.138:1880/ws/button1');
 const wscTouch1 = new WebSocket('ws://192.168.2.138:1880/ws/touch1');
 
+// These are outputs
+const wscLED1 = new WebSocket('ws://192.168.2.138:1880/ws/led1');
+const wscRelay1 = new WebSocket('ws://192.168.2.138:1880/ws/relay1');
+
 io.on('connect', function (socket) {
 	wscButton1.on('message', function(data,flags) {
 		console.log("Button1 is: " + data);
@@ -36,27 +40,41 @@ io.on('connect', function (socket) {
 	});
 
 	wscTemperature.on('message', function(data,flags) {
-		console.log("Data: ",data);
+		//console.log("Data: ",data);
 		//console.log("Flags: ",flags);
-		//let dataJ = JSON.parse(data);
-		//let a = dataJ.payload;
-		let a = data;
+		//var dataJ = JSON.parse(data);
+		//var a = dataJ.payload;
+		var a = data;
 		//console.log("A: ",a);
-		let B = 4275;
-		let R = 1023.0/a - 1.0;
+		var B = 4275;
+		var R = 1023.0/a - 1.0;
 		//console.log("R: ",R);
 		R *= 100000.0;
-		let temperature = 1.0 / (Math.log(R / 100000.0) / B + 1 / 298.15) - 273.15;
-		let tempC = Math.round((temperature*100))/100;
-		console.log("temperature: ", tempC);
-		let tempF = Math.round((temperature * 9 / 5 + 32) * 100) / 100;
-		console.log("or "+ tempF + " F");
+		var temperature = 1.0 / (Math.log(R / 100000.0) / B + 1 / 298.15) - 273.15;
+		var tempC = Math.round((temperature*100))/100;
+		//console.log("temperature: ", tempC);
+		var tempF = Math.round((temperature * 9 / 5 + 32) * 100) / 100;
+		//console.log("or "+ tempF + " F");
 		io.emit('eddy2', {
 			event: 'Temperature',
 			value: a,
 			cel: tempC,
 			far: tempF
 		});
+	});
+
+	socket.on('button',function(data) {
+		console.log("data: ", data);
+		switch (data.button) {
+			case 'relay1':
+				wscRelay1.send(data.msg);
+				console.log("Relay1: ", data.msg);
+				break;
+			case 'led1':
+				wscLED1.send(data.msg);
+				console.log("LED1: ", data.msg);
+				break;
+		}
 	});
 
 });

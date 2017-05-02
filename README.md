@@ -8,5 +8,5 @@ Devices plugged in via the Grove Sheild Board are:
 * LED via D6
 * Touch sensor via D3
 * Button via D4
-
+* Relay on D2
 

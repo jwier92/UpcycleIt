@@ -6,15 +6,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 	<div>
-		Temperature is <span id="tempC">N/A</span> C or <span id="tempF"></span> F
+		<div>
+			Temperature is <span id="tempC">N/A</span> C or <span id="tempF"></span> F
+		</div>
+		<div>
+			Button1 is <span id="button1">N/A</span>
+		</div>
+		<div>
+			Touch1 is <span id="touch1">N/A</span>
+		</div>
 	</div>
 	<div>
-		Button1 is <span id="button1">N/A</span>
-	</div>
-	<div>
-		Touch1 is <span id="touch1">N/A</span>
+		<div>
+			Relay #1: 
+			<button id='relay1off' data-state=0>Off</button>	
+			<button id='relay1on' data-state='1'>On</button>	
+		</div>
+		<div>
+			LED #1:
+			<button id='led1off' data-state='0'>Off</buton>
+			<button id='led1on' data-state='1'>On</buton>
+		</div>
 	</div>
 
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
