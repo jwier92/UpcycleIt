@@ -19,10 +19,8 @@ const wscOutletStatus = new WebSocket('ws://192.168.2.137:1880/ws/outlet/status'
 const wscLED1 = new WebSocket('ws://192.168.2.138:1880/ws/led1');
 const wscOutletControl = new WebSocket('ws://192.168.2.137:1880/ws/outlet/control');
 const wscLCD1 = new WebSocket('ws://192.168.2.138:1880/ws/lcd');
-const wscTowerStatus = new WebSocket('ws://192.168.2.137:1880/ws/status');
 
 io.on('connect', function (socket) {
-
 	wscOutletStatus.on('message', function(data,flags) {
 		console.log("Outlet Status Change:", data);
 		io.emit('tower00Outlet', {
@@ -69,10 +67,6 @@ io.on('connect', function (socket) {
 			cel: tempC,
 			far: tempF
 		});
-	});
-
-	socket.on('Tower00OutletStatus', function(data) {
-		wscTowerStatus.send("1");
 	});
 
 	socket.on('button',function(data) {

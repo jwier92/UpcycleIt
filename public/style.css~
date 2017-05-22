@@ -1,0 +1,6 @@
+
+.ob { margin: 1px; padding: 3px; border: 1px solid #aaa; border-radius:5px; box-shadow: 2px 2px 2px #ccc; }
+.obon { background-color: #6a6; }
+.oboff { background-color: #eef; }
+div.ob div { margin: 1px auto; text-align: center; }
+

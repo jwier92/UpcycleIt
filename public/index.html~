@@ -8,56 +8,56 @@
 </head>
 <body>
 	<div class="row">
-		<div class="col-lg-1 col-md-3 col-sm-3" >
+		<div class="col-lg-1 col-md-3 col-sm-6" >
 			<div id='tower00outlet1' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet1">
 				<div class='outlet'>Outlet 1</div>
 				<div class='status'>Off</div>
 				<div class='Label'></div>
 			</div>	
 		</div>
-		<div class="col-lg-1 col-md-3 col-sm-3">
+		<div class="col-lg-1 col-md-3 col-sm-6">
 			<div id='tower00outlet2' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet2">
 				<div class='outlet'>Outlet 2</div>
 				<div class='status'>Off</div>
 				<div class='Label'></div>
 			</div>	
 		</div>
-		<div class="col-lg-1 col-md-3 col-sm-3">
+		<div class="col-lg-1 col-md-3 col-sm-6">
 			<div id='tower00outlet3' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet3">
 				<div class='outlet'>Outlet 3</div>
 				<div class='status'>Off</div>
 				<div class='Label'></div>
 			</div>	
 		</div>
-		<div class="col-lg-1 col-md-3 col-sm-3">
+		<div class="col-lg-1 col-md-3 col-sm-6">
 			<div id='tower00outlet4' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet4">
 				<div class='outlet'>Outlet 4</div>
 				<div class='status'>Off</div>
 				<div class='Label'></div>
 			</div>
 		</div>
-		<div class="col-lg-1 col-md-3 col-sm-3">
+		<div class="col-lg-1 col-md-3 col-sm-6">
 			<div id='tower00outlet5' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet5">
 				<div class='outlet'>Outlet 5</div>
 				<div class='status'>Off</div>
 				<div class='Label'></div>
 			</div>
 		</div>
-		<div class="col-lg-1 col-md-3 col-sm-3">
+		<div class="col-lg-1 col-md-3 col-sm-6">
 			<div id='tower00outlet6' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet6">
 				<div class='outlet'>Outlet 6</div>
 				<div class='status'>Off</div>
 				<div class='Label'></div>
 			</div>
 		</div>
-		<div class="col-lg-1 col-md-3 col-sm-3">
+		<div class="col-lg-1 col-md-3 col-sm-6">
 			<div id='tower00outlet7' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet7">
 				<div class='outlet'>Outlet 7</div>
 				<div class='status'>Off</div>
 				<div class='Label'></div>
 			</div>
 		</div>
-		<div class="col-lg-1 col-md-3 col-sm-3">
+		<div class="col-lg-1 col-md-3 col-sm-6">
 			<div id='tower00outlet8' class="ob oboff" data-state='off' data-device="tower00" data-control="outlet8">
 				<div class='outlet'>Outlet 8</div>
 				<div class='status'>Off</div>
