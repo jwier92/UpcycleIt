@@ -30,30 +30,12 @@ $(function() {
 		var state = "on";
 		if (currentState == "on")
 			state = "off"
-		//console.log('Device:', device);
-		//console.log('Control:', control);
-		//console.log('Current State:', currentState);
-		//console.log('New State:', state);
 		socket.emit('button', {
 			button: 'Tower00Outlet',
 			msg: {
 				outlet: control,
 			 	state: state
 			} 
-		});
-	});
-	$('#led1on').on('click',function() {
-		//console.log('Socket Emit LED1 ON');
-		socket.emit('button', {
-			button: 'led1',
-			msg: 1
-		});
-	});
-	$('#led1off').on('click',function() {
-		//console.log('Socket Emit LED1 OFF');
-		socket.emit('button', {
-			button: 'led1',
-			msg: 0
 		});
 	});
 	$('#lcd1time').on('click',function() {
@@ -68,6 +50,18 @@ $(function() {
 		socket.emit('button', {
 			button: 'lcd1Temp',
 			msg: 0
+		});
+	});
+	$('#lcdCustom').on('click',function() {
+		//console.log('Socket Emit LCD1 Time');
+		socket.emit('button', {
+			button: 'lcd1Custom',
+			msg: 0,
+			msg1: $('#lcdmsg1').val(),
+			msg2: $('#lcdmsg2').val(),
+			R: $('#lcdR').val(),
+			G: $('#lcdG').val(),
+			B: $('#lcdB').val()
 		});
 	});
 

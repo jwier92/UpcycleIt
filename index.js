@@ -48,26 +48,11 @@ io.on('connect', function (socket) {
 	});
 
 	wscTemperature.on('message', function(data,flags) {
-		//console.log("Data: ",data);
-		//console.log("Flags: ",flags);
-		//var dataJ = JSON.parse(data);
-		//var a = dataJ.payload;
-		var a = data;
-		//console.log("A: ",a);
-		var B = 4275;
-		var R = 1023.0/a - 1.0;
-		//console.log("R: ",R);
-		R *= 100000.0;
-		var temperature = 1.0 / (Math.log(R / 100000.0) / B + 1 / 298.15) - 273.15;
-		var tempC = Math.round((temperature*100))/100;
-		//console.log("temperature: ", tempC);
-		var tempF = Math.round((temperature * 9 / 5 + 32) * 100) / 100;
-		//console.log("or "+ tempF + " F");
+		var d2 = JSON.parse(data);
 		io.emit('eddy2', {
 			event: 'Temperature',
-			value: a,
-			cel: tempC,
-			far: tempF
+			cel: d2.tempC,
+			far: d2.tempF
 		});
 	});
 
@@ -98,6 +83,19 @@ io.on('connect', function (socket) {
 				console.log("Setting LCD1 to Time",data);
 				var myMSG = {
 					state: "outside temperature"
+				};
+				console.log("sending: ",myMSG);
+				wscLCD1.send(JSON.stringify(myMSG));
+				break;
+			case 'lcd1Custom':
+				console.log("Setting LCD1 to Custom",data);
+				var myMSG = {
+					state: "custom",
+					msg1: data.msg1,
+					msg2: data.msg2,
+					R: data.R,
+					G: data.G,
+					B: data.B
 				};
 				console.log("sending: ",myMSG);
 				wscLCD1.send(JSON.stringify(myMSG));
